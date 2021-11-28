@@ -791,7 +791,7 @@ func resourceIBMComputeBareMetalRead(d *schema.ResourceData, meta interface{}) e
 	d.Set("ipv6_enabled", false)
 	if result.PrimaryNetworkComponent.PrimaryVersion6IpAddressRecord != nil {
 		d.Set("ipv6_enabled", true)
-		d.Set("ipv6_address", *result.PrimaryNetworkComponent.PrimaryVersion6IpAddressRecord.IpAddress)
+		d.Set("ipv6_address", nil)
 		d.Set("ipv6_address_id", *result.PrimaryNetworkComponent.PrimaryVersion6IpAddressRecord.Id)
 	}
 	err = readSecondaryIPAddresses(d, meta, result.PrimaryIpAddress)
